@@ -1,0 +1,41 @@
+#!/bin/bash
+# Renato
+# 25/05/2015
+# Script conf_cliente.sh renomeia o executavel shutdown para shutdown_main e cria um shutdown para "enganar" o sistema, que no momento do desligamento irá chamar o shutdown criado. 
+# Este arquivo shutdown(criado) verifica se tem MVs em execução e avisa ao servidor nuvem para migrá-las e só então desliga a máquina física, chamando o verdadeiro shutdown(shutdown_main).
+
+par1=$1
+par2=$2
+par3=$3
+qtd_par=$#	# Quantidade de paramentros recebidos.
+
+# Escreve no arquivo de log. para cliente_python avisar servidor sobre desligamento.
+echo "stop executado em: $(date)" > /var/log/daemon-cliente.log
+
+while true
+do
+    # virsh list | grep -Ei '(executando)|(movendo)'  &> /dev/null
+    vm=$(pgrep kvm | wc -l)
+    if [ "$vm" -ge "2" ]; then		# pgrep lista IDs das VMs no KVM, que se maior ou igual a 2, então tem VM executando.
+        echo "Existe VM status runn"
+        sleep 10    #espera em segundos, e verifica novamente por MV runn.
+    else
+#        echo "nao tem vm runn, pode desligar"
+        break	# Sai do laço.
+    fi
+done
+
+# Função de ajuda
+function ajuda() {
+    echo "Try 'shutdown --help' for more information."
+}
+       
+# Chama o verdadeiro shutdown (shutdown_main) e desliga a MF
+case $qtd_par in
+    1) shutdown_main $par1 ;;
+    2) shutdown_main $par1 $par2 ;;
+    3) shutdown_main $par1 $par2 $par3 ;;
+    *) ajuda ;;
+esac
+
+exit 0
