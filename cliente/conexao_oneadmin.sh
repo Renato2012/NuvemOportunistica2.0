@@ -135,14 +135,20 @@ function transfere() {
     do
         scp /etc/hosts $usr_remoto@$ip:~ 
         ssh $usr_remoto@$ip "sudo cp /etc/hosts /etc/hosts.old && sudo mv ~/hosts /etc/"
+       
+        if [ "$?" -ne 0 ]; then    # Ver se conexão ssh falhou.
+            echo -e "\n\t Ligue todas as máquinas da nuvem e Execute: $0 t \n"
+            exit 0
+        fi
     done
 }
 
 #================ Função mostra informações de uso. =================
 function uso() {
     echo "uso:       
-                para instalar a 1ª vez: $0 i
-                para adicionar nova máquina: $0 a"
+                Para instalar a 1ª vez: $0 i
+                Para adicionar nova máquina: $0 a
+                Para atualizar Hosts, em caso de erro quando usado a opção [$0 a], use: $0 t"
 }
 #============================= Menu =================================
 if [ $# = 0 ]; then
@@ -159,9 +165,14 @@ case $opcao in
 i) instalar $adm_remoto $adm_senha
    transfere	# chama a função transfere, após configurar todos os clientes.
 ;;
+
 a) adicionar $adm_remoto $adm_senha
    transfere	# chama a função transfere, após adicionar uma nova máquina cliente.
 ;;
+
+t) transfere    # Em caso de erro com o uso da opção 'a', chamar manualmente a função transfere para atualizar /etc/hosts das máquinas da nuvem. 
+;;
+
 *) uso
 ;;
 
