@@ -17,8 +17,8 @@ do
     # virsh list | grep -Ei '(executando)|(movendo)'  &> /dev/null
     vm=$(pgrep kvm | wc -l)
     if [ "$vm" -ge "2" ]; then		# pgrep lista IDs das VMs no KVM, que se maior ou igual a 2, então tem VM executando.
-        echo "Existe VM status runn"
-        sleep 10    #espera em segundos, e verifica novamente por MV runn.
+        echo "Existem MVs da nuvem em execução, aguarde um instante pela migração!"
+        sleep 2    #espera em segundos, e verifica novamente por MV runn.
     else
 #        echo "nao tem vm runn, pode desligar"
         break	# Sai do laço.
