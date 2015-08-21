@@ -14,7 +14,7 @@ servidor = "maquina1"
 var = 1
 while var != 0:
     var = os.system("ping -c1 " + ip)
-    time.sleep (5) 
+    time.sleep (1) 
 # fim do laço
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -25,7 +25,7 @@ tcp.connect(destino)
 montar_nfs(ip, servidor)
 
 def estado():
-    status = on_off()
+    status = on_off()		# chama função, que verifica status.
     if int(status) == 0:
         #print "enviando start"
         tcp.send("start")
@@ -34,7 +34,7 @@ def estado():
             time.sleep (1)
             #print "dentro do laço"
             status = on_off()
-            if int(status) != 0:	# achou a apalavra stop no arquivo
+            if int(status) != 0:	# achou a palavra stop no arquivo
                 #print "enviando stop"
                 tcp.send("stop")
                 resposta = tcp.recv(1024)
