@@ -3,7 +3,9 @@
 import os
 import socket
 import time		# Importar modulo time para usar o relogio.
+import thread
 from monitora import*	# Importar modulo da função monitoramento. 
+from verifica_vm_login import*
 
 #recebe os parametros digitados
 ip = "200.129.39.81"
@@ -24,18 +26,22 @@ tcp.connect(destino)
 # Chama função para montar NFS.
 montar_nfs(ip, servidor)
 
+## Chama a função que verifica MV em execução e usuário logado. Caso contrário desliga a máquina física.
+tempo_logar = 300
+thread.start_new_thread(desligar, (tempo_logar,))
+
 def estado():
-    status = on_off()		# chama função, que verifica status.
+    status = on_off()
     if int(status) == 0:
-        #print "enviando start"
+        print "enviando start"
         tcp.send("start")
 
         while True:
             time.sleep (1)
-            #print "dentro do laço"
+            print "dentro do laço"
             status = on_off()
-            if int(status) != 0:	# achou a palavra stop no arquivo
-                #print "enviando stop"
+            if int(status) != 0:	# achou a apalavra stop no arquivo
+            #    print "enviando stop"
                 tcp.send("stop")
                 resposta = tcp.recv(1024)
                 print "a resposta foi " + resposta
