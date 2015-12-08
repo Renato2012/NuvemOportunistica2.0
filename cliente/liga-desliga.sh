@@ -23,7 +23,7 @@ function desligar () {
     read -p "Desligar todas as máquinas? [s/n] " resposta
     
     if [ "$resposta" == s ]; then
-        for ip in $(cat listaDeIPs.txt)
+        for ip in $(cat ~/cliente/listaDeIPs.txt)
         do
             ssh $usr_remoto@$ip "sudo shutdown -h now" &> /dev/null
             echo -e "Desligando Host $ip \n"
