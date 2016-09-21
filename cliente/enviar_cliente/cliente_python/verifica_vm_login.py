@@ -4,7 +4,10 @@
 # Renato Cavalcante
 # 24/08/2015
 
-# A Máquina Física(MF) será desligada automaticamente se não houver usuário logado e Máquina Virtual(MV) em execução. Mas deve haver uma tolerância, pois no momento inicial em que a MF estiver ligando não haverá usuário logado e nem MV, o que causaria o desligamento da MF imediatamente ao ligar. Portanto deve haver uma espera inicial, para de fato haver as verificações por usuário e MV.
+# A Máquina Física (MF) será desligada automaticamente se não houver usuário logado e Máquina Virtual (MV) em execução. 
+# Mas deve haver uma tolerância, pois no momento em que a MF estiver ligando não haverá usuário logado e nem MV, o que 
+# causaria o desligamento da MF imediatamente ao ligar. Portanto, deve haver uma espera inicial, para de fato haver as 
+# verificações por usuário logado e MV em execução.
 
 import os
 import commands
@@ -21,7 +24,7 @@ def desligar(tempo_logar):
 
     # Início da verificação por MV runn e usuário logado.
     while True:
-        mv = commands.getoutput("pgrep kvm | wc -l")	# Se retornar maior que 1, tem MV em execução.
+        mv = commands.getoutput("pgrep kvm | wc -l")			# Se retornar maior que 1, tem MV em execução.
         usuario = commands.getoutput("who -q | sed -n 's/^.*=//p'")	# Quantidade de usuários logados, se retornar 0, não tem usuário logado.
      
         if (int(mv) <= 1 and int(usuario) == 0):
@@ -30,5 +33,7 @@ def desligar(tempo_logar):
         time.sleep (1)
 
 
-# chamar função
+# Chamar função
 #desligar()
+
+
