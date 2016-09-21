@@ -1,7 +1,6 @@
 Autor: Renato Cavalcante  
 data: 13/10/2014
 
-####=========================================
 # Instruções Gerais
 
 Instale as dependencias com o script abaixo.  
@@ -9,8 +8,8 @@ sudo ./dependencias.sh
 
 Siga os passos a seguir para instalar sua nuvem!
 ### Passo 1:
-Execute o script a seguir \(passando os paramentros necessários\) para instalar e configurar o KVM no seu servidor.  
-./conf_cliente.sh \<senha_adm\> \<senha_one\> \<nome_maquina\> \<ip>
+Execute o script a seguir \(passando os parametros necessários\) para instalar e configurar o KVM no seu servidor.  
+./conf_cliente.sh \<senha_adm\> \<senha_one\> \<nome_maquina\> \<ip\>
 
 ### Passo 2:
 Instale o Gerenciador OpenNebula na máquina a ser o servidor de forma autocontida usando a hierarquia de diretórios:  
@@ -38,7 +37,7 @@ Irá solicitar a interface de rede, digite br0. O Script se encontra dentro da p
 Este script irá gerar os arquivos listaDeIPs.txt, listaDeMACs.txt contendo os IPs e MACs, respectivamente.  
 
 ### Passo 5:
-Execute o script a seguir para instalar o kvm nos clientes e configura-los.  
+Execute o script a seguir para instalar o KVM nos clientes e configura-los.  
 ./conexao_oneadmin.sh
 
 
