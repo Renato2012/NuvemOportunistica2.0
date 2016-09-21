@@ -2,22 +2,22 @@
 #coding=UTF-8
 import os
 import socket
-import time		# Importar modulo time para usar o relogio.
+import time			# Importar modulo time para usar o relogio.
 import thread
-from monitora import*	# Importar modulo da função monitoramento. 
+from monitora import*		# Importar modulo da função monitoramento. 
 from verifica_vm_login import*
 
-#recebe os parametros digitados
+# Recebe os parametros digitados
 ip = "200.129.39.81"
 porta = int(3000)
 servidor = "maquina1"
 
-# Verificar se tem rede.
+# Verifica se rede está ativa.
 var = 1
 while var != 0:
     var = os.system("ping -c1 " + ip)
     time.sleep (1) 
-# fim do laço
+# Fim do laço
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 destino = (ip, porta)
@@ -26,7 +26,7 @@ tcp.connect(destino)
 # Chama função para montar NFS.
 montar_nfs(ip, servidor)
 
-## Chama a função que verifica MV em execução e usuário logado. Caso contrário desliga a máquina física.
+# Chama a função que verifica MV em execução e usuário logado. Caso contrário desliga a máquina física.
 tempo_logar = 300
 thread.start_new_thread(desligar, (tempo_logar,))
 
@@ -40,7 +40,7 @@ def estado():
             time.sleep (1)
             print "dentro do laço"
             status = on_off()
-            if int(status) != 0:	# achou a apalavra stop no arquivo
+            if int(status) != 0:	# Achou a palavra "stop" no arquivo
             #    print "enviando stop"
                 tcp.send("stop")
                 resposta = tcp.recv(1024)
@@ -48,9 +48,10 @@ def estado():
                 tcp.close()
                 break
 
-# chama a função estado
+# Chama a função estado
 estado()
 
-#fecha a conexao
+# Fecha a conexão
 tcp.close()
+
 
