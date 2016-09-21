@@ -9,8 +9,8 @@ sudo ./dependencias.sh
 
 Siga os passos a seguir para instalar sua nuvem!
 ### Passo 1:
-Execute o script a seguir para instalar e configurar o KVM no seu servidor.  
-./conf_cliente.sh <\senha_adm> <\senha_one> <\nome_maquina> <\ip>
+Execute o script a seguir \(passando os paramentros necessários\) para instalar e configurar o KVM no seu servidor.  
+./conf_cliente.sh \<senha_adm\> \<senha_one\> \<nome_maquina\> \<ip>
 
 ### Passo 2:
 Instale o Gerenciador OpenNebula na máquina a ser o servidor de forma autocontida usando a hierarquia de diretórios:  
