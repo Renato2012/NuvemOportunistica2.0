@@ -15,7 +15,7 @@ usuário: oneadmin
 senha: admin
 ```
 
-* Com isso, você terá acesso gráfico ao seu ambiente de nuvem da privada. 
+* Com isso, você terá acesso gráfico ao seu ambiente de nuvem privada. 
 
 
 ## Autor
