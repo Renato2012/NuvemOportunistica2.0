@@ -17,7 +17,7 @@ sudo ./dependencias.sh
 * Execute o script a seguir \(passando os parametros necessários\) para instalar e configurar o KVM no seu servidor. 
 
 ```
-./conf_cliente.sh \<senha_adm\> \<senha_one\> \<nome_maquina\> \<ip\>
+./conf_cliente.sh <senha_adm> <senha_one> <nome_maquina> <ip>
 ```
 
 ### Passo 2
