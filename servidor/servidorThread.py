@@ -6,7 +6,7 @@ import sys
 from tomadecisoes import*
 import errno
 
-HOST = ''              # Endereço IP do Cliente ('' aceita cliente com qualquer IP)
+HOST = ''              # Endereço IP do Servidor ('' atalho para responder em mais de um IP, servidor pode ter mais que uma NIC)
 PORTA = 3000           # Porta que o Servidor está respondendo
 
 def conectado(con, cliente):
