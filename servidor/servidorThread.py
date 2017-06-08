@@ -6,8 +6,8 @@ import sys
 from tomadecisoes import*
 import errno
 
-HOST = ''              # Endereco IP do Servidor
-PORTA = 3000           # Porta que o Servidor esta respondendo
+HOST = ''              # Endereço IP do Cliente ('' aceita cliente com qualquer IP)
+PORTA = 3000           # Porta que o Servidor está respondendo
 
 def conectado(con, cliente):
     print '\n Conectado ao: ', cliente
@@ -50,3 +50,4 @@ while True:
     thread.start_new_thread(conectado, tuple([con, cliente]))
 
 tcp.close()
+
