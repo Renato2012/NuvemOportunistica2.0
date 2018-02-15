@@ -1,0 +1,9 @@
+#+++++++++++++++++++++++++++++
+# Correção de bug.           #
+#+++++++++++++++++++++++++++++
+
+Além dos pacotes normais necessários do OpenNebula-4.8.0, instalar esses: 
+
+sudo apt-get install xmlrpc-api-utils libxml-perl libxmlrpc-c++8 libxmlrpc-c++8-dev libxml2-dev libjs-jquery libjs-jquery-ui novnc serverstats
+
+
