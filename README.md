@@ -2,7 +2,14 @@
 
 # Instruções Gerais
 
-Instale as dependencias com o script abaixo.
+
+#### A descrição completa desse projeto pode ser obtida [aqui](http://www.repositorio.ufc.br/handle/riufc/25186).
+#### Para citar este trabalho use essa [publicação](http://sbrc2016.ufba.br/downloads/WCGA/154946_1.pdf).
+#### Uma versão anterior desse projeto pode ser encontrada [aqui](https://github.com/Renato2012/NuvemOportunistica).
+
+
+
+* Instale as dependencias com o script abaixo.
 
 ```
 sudo ./dependencias.sh
@@ -24,7 +31,7 @@ sudo ./dependencias.sh
 
 * Instale o Gerenciador OpenNebula na máquina a ser o servidor de forma autocontida usando a hierarquia de diretórios: 
 
-/srv/cloud/one/
+*/srv/cloud/one/*
 
 ### Passo 3
 
@@ -45,15 +52,17 @@ sudo chown -Rf oneadmin.oneadmin /home/oneadmin/dependencias/
 
 * Ligue todas as máquinas da rede que deseja que faça parte da nuvem.
 
-* Execute o script para procurar e salvar uma lista com os endereços IPs, e outra com os Endereços MACs de sua rede.
+* Execute o script para procurar e salvar uma lista com os endereços IPs e outra com os endereços MACs de sua rede.
   
-* Irá solicitar a interface de rede, digite br0. O Script se encontra dentro da pasta /home/oneadmin/cliente/
+* Será solicitado a interface de rede, digite **br0**. O Script se encontra na pasta */home/oneadmin/cliente/*
 
 ```
 ./procuraMACS.sh
 ```
 
-* Este script irá gerar os seguintes arquivos de saída: listaDeIPs.txt, listaDeMACs.txt contendo os IPs e MACs, respectivamente.
+* Este script irá gerar os seguintes arquivos de saída: 
+listaDeIPs.txt -- contendo os IPs;
+listaDeMACs.txt -- contendo os MACs.
 
 ### Passo 5
 
@@ -63,12 +72,8 @@ sudo chown -Rf oneadmin.oneadmin /home/oneadmin/dependencias/
 ./conexao_oneadmin.sh
 ```
 
-## Autor
+## Author
 
-* **Renato Cavalcante**
-
-#### Data
-* **13/10/2014**
-
+* **Renato Araújo**
 
 
