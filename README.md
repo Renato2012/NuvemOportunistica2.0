@@ -4,7 +4,7 @@
 
 
 #### A descrição completa desse projeto pode ser obtida [aqui](http://www.repositorio.ufc.br/handle/riufc/25186).
-#### Para citar este trabalho use essa [publicação](http://sbrc2016.ufba.br/downloads/WCGA/154946_1.pdf).
+#### Para [citar](https://scholar.google.com.br/scholar?oi=bibs&hl=pt-BR&cluster=3461816708330197385#d=gs_cit&p=&u=%2Fscholar%3Fq%3Dinfo%3AiZGIafTXCjAJ%3Ascholar.google.com%2F%26output%3Dcite%26scirp%3D0%26scfhb%3D1%26hl%3Dpt-BR) este trabalho use essa [publicação](http://sbrc2016.ufba.br/downloads/WCGA/154946_1.pdf).
 #### Uma versão anterior desse projeto pode ser encontrada [aqui](https://github.com/Renato2012/NuvemOportunistica).
 
 
